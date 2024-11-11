@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "LG_GAME")
+@Table(name = "tb_game")
 public class Game implements Serializable {
     private static final long serialVersionUIDLONG = 1L;
 
@@ -17,24 +17,28 @@ public class Game implements Serializable {
 
     @Column(name = "game_year")
     private Long year;
+
+    @Column(columnDefinition = "TEXT")
     private String longDescription;
+
+    @Column(columnDefinition = "TEXT")
     private String shortDescription;
     private String genre;
-    private String platform;
+    private String platforms;
     private Double score;
     private String imgUrl;
 
     public Game() {
     }
 
-    public Game(Long id, String title, Long year, String longDescription, String shortDescription, String genre, String platform, Double score, String imgUrl) {
+    public Game(Long id, String title, Long year, String longDescription, String shortDescription, String genre, String platforms, Double score, String imgUrl) {
         this.id = id;
         this.title = title;
         this.year = year;
         this.longDescription = longDescription;
         this.shortDescription = shortDescription;
         this.genre = genre;
-        this.platform = platform;
+        this.platforms = platforms;
         this.score = score;
         this.imgUrl = imgUrl;
     }
@@ -87,12 +91,12 @@ public class Game implements Serializable {
         this.genre = genre;
     }
 
-    public String getPlatform() {
-        return platform;
+    public String getPlatforms() {
+        return platforms;
     }
 
-    public void setPlatform(String platform) {
-        this.platform = platform;
+    public void setPlatforms(String platform) {
+        this.platforms = platform;
     }
 
     public Double getScore() {
